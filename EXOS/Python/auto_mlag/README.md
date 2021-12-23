@@ -31,7 +31,7 @@ This script was tested on 31.5 and older.
 * script does not work, if more than one peer is connected
 * do not run this script parallel on both PEERs. You have to run the script on PEER-1 first.
 * Once it completes on PEER-1, then start to execute on PEER2
-**Below are the PEER IPs and VLAN details used for in the script. It can be changed based on the requirement.**
+* **Below are the PEER IPs and VLAN details variable used in the script. It can be changed based on the requirement.**
 ```
 peer_ip_list = ['169.254.0.1/16', '169.254.0.2']
 isc_vlan = {'name' : 'isc_mlag', 'tag' : '4094', 'mode' : 'tagged'}
@@ -83,6 +83,20 @@ Authentication    : None
 
 Alternate path information: None
 * (CIT_31.6.0.412) X465-24XE.4 #
+* (CIT_31.6.0.412) X465-24XE.4 # show log
+12/23/2021 14:07:14.74 <Info:AAA.authPass> Login passed for user admin through serial
+12/23/2021 12:39:48.20 <Noti:DM.Notice> Setting hwclock time to system time, and broadcasting time
+12/23/2021 11:41:57.59 <Info:AAA.logout> Administrative account (admin) logout from serial
+12/23/2021 11:21:48.11 <Noti:VSM.RmtMLAGPeerUp> Peer 2:169.254.0.1:: Peer is active
+12/23/2021 11:21:47.75 <Info:System.userComment> autoMlag:- script shutdown
+12/23/2021 11:21:47.75 <Info:System.userComment> autoMlag:- config mlag peer Mlag_peer1 ipaddress 169.254.0.1 vr vr-default
+12/23/2021 11:21:47.75 <Noti:VSM.RmtMLAGPeerDown> Peer 0::: Peer is down
+12/23/2021 11:21:34.89 <Info:System.userComment> autoMlag:- config vlan isc_mlag add port 22 tagged
+12/23/2021 11:21:26.82 <Info:LACP.AddPortToAggr> Add port 24 to aggregator
+12/23/2021 11:21:26.82 <Info:LACP.AddPortToAggr> Add port 22 to aggregator
+12/23/2021 11:21:24.82 <Info:System.userComment> autoMlag:- enable sharing 22 grouping 22, 24 lacp
+12/23/2021 11:21:24.71 <Info:System.userComment> autoMlag:- script started
+
 ```
 
 ## License
